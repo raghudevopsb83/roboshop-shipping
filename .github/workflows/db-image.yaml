@@ -1,0 +1,16 @@
+name: DB Schema Image
+on: workflow_dispatch
+jobs:
+  Docker-Build-And-Docker-Push:
+    runs-on: self-hosted
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Download Dependencies
+        run: |
+          export PATH=/home/github/.local/bin:/home/github/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin
+          docker build -t 633788536644.dkr.ecr.us-east-1.amazonaws.com/shipping-schema:latest .
+          aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 633788536644.dkr.ecr.us-east-1.amazonaws.com
+          docker push 633788536644.dkr.ecr.us-east-1.amazonaws.com/shipping-schema:latest
+
+

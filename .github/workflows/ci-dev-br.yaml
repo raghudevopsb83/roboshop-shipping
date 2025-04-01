@@ -8,6 +8,6 @@ jobs:
     uses: raghudevopsb83/github-actions-reusable/.github/workflows/ci-dev-br.yaml@main
     with:
       component_name: shipping
-
+      app_type: maven
 
 

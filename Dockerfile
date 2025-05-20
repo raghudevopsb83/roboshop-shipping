@@ -1,8 +1,9 @@
 FROM          docker.io/amazoncorretto
-RUN           useradd java
-WORKDIR       /home/java
+RUN           mkdir /app
+WORKDIR       /app
+USER          nobody
 COPY          target/shipping-1.0.jar shipping.jar
-COPY          newrelic/ /home/java/newrelic/
+COPY          newrelic/ /app/newrelic/
 COPY          run.sh run.sh
 ENTRYPOINT    ["bash", "run.sh"]
 #

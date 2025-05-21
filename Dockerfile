@@ -1,4 +1,4 @@
-FROM          docker.io/amazoncorretto
+FROM          docker.io/amazoncorretto:17
 RUN           mkdir /app
 WORKDIR       /app
 USER          nobody

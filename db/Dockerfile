@@ -1,7 +1,7 @@
 FROM            redhat/ubi9
 RUN             dnf install mysql git -y
-RUN             mkdir /app
-WORKDIR         /app
-COPY            *.sql run.sh /app/
+RUN             mkdir /tmp
+WORKDIR         /tmp
+COPY            *.sql run.sh /tmp/
 ENTRYPOINT      ["bash", "run.sh"]
 
